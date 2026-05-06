@@ -1,0 +1,2418 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GHK-Cu BioTech - Tecnologia Avançada em Peptídeos</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;900&family=Rajdhani:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-primary: #0a1628;
+            --bg-secondary: #0d1b2e;
+            --bg-dark: #050d1a;
+            --blue-primary: #1a4d7a;
+            --blue-glow: #2d7ab8;
+            --cyan: #00b8e6;
+            --copper: #d4a574;
+            --copper-light: #e8c4a0;
+            --text-primary: #ffffff;
+            --text-secondary: #8fa3be;
+            --border: rgba(29, 125, 184, 0.2);
+            --shadow: 0 4px 20px rgba(0, 184, 230, 0.15);
+            --shadow-lg: 0 8px 40px rgba(0, 184, 230, 0.25);
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(180deg, var(--bg-primary) 0%, var(--bg-secondary) 50%, var(--bg-dark) 100%);
+            color: var(--text-primary);
+            overflow-x: hidden;
+            line-height: 1.7;
+            font-weight: 400;
+            position: relative;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 30%, rgba(29, 125, 184, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 80% 70%, rgba(212, 165, 116, 0.1) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        /* Hero Product Floating Effect */
+        .hero-product-container {
+            max-width: 900px;
+            margin: 3rem auto;
+            perspective: 1000px;
+            position: relative;
+            background: transparent;
+        }
+
+        .hero-product-main {
+            width: 100%;
+            height: auto;
+            max-width: 1024px;
+            filter: drop-shadow(0 40px 100px rgba(29, 125, 184, 0.6)) 
+                    drop-shadow(0 20px 60px rgba(212, 165, 116, 0.3));
+            animation: floatProduct 6s ease-in-out infinite;
+            transition: transform 0.3s ease;
+            position: relative;
+            /* Garantir transparência */
+            background: transparent;
+            mix-blend-mode: normal;
+            /* Melhorias de qualidade e performance */
+            image-rendering: -webkit-optimize-contrast;
+            image-rendering: high-quality;
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+            -webkit-transform: translateZ(0) scale(1.0001);
+            transform: translateZ(0) scale(1.0001);
+            will-change: transform;
+            /* Anti-aliasing e sharpness */
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            /* Suavização de bordas */
+            shape-rendering: geometricPrecision;
+        }
+
+        /* Otimização para picture element */
+        .hero-product-container picture {
+            display: block;
+            width: 100%;
+        }
+
+        @keyframes floatProduct {
+            0%, 100% { 
+                transform: translateY(0px) rotateX(0deg);
+            }
+            25% {
+                transform: translateY(-20px) rotateX(2deg);
+            }
+            50% { 
+                transform: translateY(-30px) rotateX(0deg);
+            }
+            75% {
+                transform: translateY(-20px) rotateX(-2deg);
+            }
+        }
+
+        .hero-product-main:hover {
+            animation-play-state: paused;
+            transform: scale(1.05) translateY(-10px);
+        }
+
+        /* Glow effect behind product */
+        .hero-product-container::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 120%;
+            height: 120%;
+            background: radial-gradient(ellipse, rgba(29, 125, 184, 0.3) 0%, transparent 60%);
+            animation: pulseGlow 4s ease-in-out infinite;
+            z-index: -1;
+            filter: blur(40px);
+        }
+
+        @keyframes pulseGlow {
+            0%, 100% { 
+                opacity: 0.5;
+                transform: translate(-50%, -50%) scale(1);
+            }
+            50% { 
+                opacity: 0.8;
+                transform: translate(-50%, -50%) scale(1.1);
+            }
+        }
+
+        /* Floating particles around product */
+        .hero-product-container .particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: var(--cyan);
+            border-radius: 50%;
+            opacity: 0.6;
+            box-shadow: 0 0 10px var(--cyan);
+            animation: floatParticle 4s ease-in-out infinite;
+        }
+
+        @keyframes floatParticle {
+            0%, 100% {
+                transform: translateY(0) translateX(0);
+                opacity: 0.3;
+            }
+            50% {
+                transform: translateY(-30px) translateX(10px);
+                opacity: 0.8;
+            }
+        }
+
+        /* DNA helix decoration */
+        .hero-product-container .dna-strand {
+            position: absolute;
+            width: 2px;
+            height: 100%;
+            background: linear-gradient(to bottom, transparent, var(--cyan), transparent);
+            opacity: 0.2;
+            animation: dnaFloat 8s ease-in-out infinite;
+        }
+
+        .hero-product-container .dna-strand:nth-child(7) {
+            left: 5%;
+            animation-delay: 0s;
+        }
+
+        .hero-product-container .dna-strand:nth-child(8) {
+            right: 5%;
+            animation-delay: 2s;
+        }
+
+        @keyframes dnaFloat {
+            0%, 100% {
+                transform: translateY(0) scaleY(1);
+                opacity: 0.2;
+            }
+            50% {
+                transform: translateY(-20px) scaleY(1.1);
+                opacity: 0.4;
+            }
+        }
+
+        /* ── Navbar ── */
+        .navbar {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 5%;
+            height: 80px;
+            background: rgba(10, 22, 40, 0.85);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border);
+            transition: all 0.3s;
+        }
+
+        .navbar.scrolled {
+            background: rgba(10, 22, 40, 0.95);
+            box-shadow: 0 4px 20px rgba(0, 184, 230, 0.2);
+        }
+
+        .nav-brand {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: var(--accent);
+            letter-spacing: 0.05em;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover { 
+            color: var(--accent);
+        }
+
+        .nav-cta {
+            padding: 0.7rem 1.8rem;
+            background: var(--accent);
+            color: #fff !important;
+            border-radius: 8px;
+            font-weight: 600 !important;
+            transition: all 0.3s !important;
+        }
+
+        .nav-cta:hover {
+            background: var(--accent-light);
+            transform: translateY(-1px);
+        }
+
+        .nav-brand {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.25rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--copper-light), var(--copper));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: 0.08em;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 500;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover { color: var(--copper-light); }
+
+        .nav-cta {
+            padding: 0.55rem 1.6rem;
+            background: linear-gradient(135deg, var(--copper), var(--copper-light));
+            color: #07091e !important;
+            border-radius: 50px;
+            font-weight: 700 !important;
+            font-size: 0.8rem !important;
+            letter-spacing: 0.06em !important;
+            transition: box-shadow 0.2s, transform 0.2s !important;
+        }
+
+        .nav-cta:hover {
+            color: #07091e !important;
+            box-shadow: 0 6px 20px var(--copper-glow);
+            transform: translateY(-1px);
+        }
+
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .navbar { padding: 0 1.5rem; }
+        }
+
+        /* Animated Background */
+        .bg-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .content-wrapper {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* ── Trust Bar ── */
+        .trust-bar {
+            background: linear-gradient(90deg, var(--bg-secondary) 0%, var(--bg-primary) 50%, var(--bg-secondary) 100%);
+            border-bottom: 1px solid var(--border);
+            padding: 1rem 2rem;
+            text-align: center;
+            font-size: 0.85rem;
+            letter-spacing: 0.03em;
+            color: var(--text-secondary);
+            font-weight: 500;
+            margin-top: 80px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .trust-bar::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(0, 184, 230, 0.1), transparent);
+            animation: shimmerBar 3s infinite;
+        }
+
+        @keyframes shimmerBar {
+            0% { left: -100%; }
+            100% { left: 100%; }
+        }
+
+        .trust-bar span { 
+            margin: 0 1.5rem;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .trust-bar span::before { 
+            content: '✓ '; 
+            color: var(--cyan);
+            font-weight: 700;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 95vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 8rem 5% 4rem;
+            position: relative;
+            background: linear-gradient(180deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 800px;
+            height: 800px;
+            background: radial-gradient(circle, rgba(29, 125, 184, 0.2) 0%, transparent 70%);
+            filter: blur(80px);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(29,125,184,0.1)" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+            opacity: 0.3;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.5; }
+            50% { transform: translate(-50%, -50%) scale(1.1); opacity: 0.3; }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            animation: fadeInUp 1s ease-out;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .logo-text {
+            font-family: 'Orbitron', sans-serif;
+            font-size: clamp(3rem, 8vw, 5.5rem);
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--cyan) 0%, var(--blue-glow) 50%, var(--copper-light) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: 0.02em;
+            margin-bottom: 0.5rem;
+            line-height: 1.1;
+            text-shadow: 0 0 40px rgba(0, 184, 230, 0.3);
+            animation: fadeInUp 1s ease-out, textGlow 3s ease-in-out infinite;
+        }
+
+        @keyframes textGlow {
+            0%, 100% { filter: brightness(1); }
+            50% { filter: brightness(1.2); }
+        }
+
+        .brand-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: linear-gradient(135deg, rgba(0, 184, 230, 0.15), rgba(29, 125, 184, 0.1));
+            border: 1px solid var(--cyan);
+            border-radius: 50px;
+            padding: 0.5rem 1.2rem;
+            font-size: 0.75rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--cyan);
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+            box-shadow: 0 0 20px rgba(0, 184, 230, 0.3);
+            animation: fadeInUp 1s ease-out, pulseBadge 2s ease-in-out infinite;
+        }
+
+        @keyframes pulseBadge {
+            0%, 100% { box-shadow: 0 0 20px rgba(0, 184, 230, 0.3); }
+            50% { box-shadow: 0 0 30px rgba(0, 184, 230, 0.5); }
+        }
+
+        .brand-badge::before {
+            content: '';
+            width: 6px; height: 6px;
+            background: var(--cyan);
+            border-radius: 50%;
+            box-shadow: 0 0 10px var(--cyan);
+            animation: blink 1.5s ease-in-out infinite;
+        }
+
+        .subtitle {
+            font-size: clamp(1rem, 2.5vw, 1.4rem);
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            margin-bottom: 1.5rem;
+            font-weight: 500;
+        }
+
+        .tagline {
+            font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+            color: var(--text-secondary);
+            max-width: 700px;
+            margin: 0 auto 2.5rem;
+            font-weight: 400;
+            line-height: 1.6;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.3; }
+        }
+
+        /* Hero Trust Badges */
+        .hero-trust-badges {
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin: 2rem auto 0;
+            max-width: 600px;
+        }
+
+        .trust-badge-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+
+        .badge-icon {
+            width: 20px;
+            height: 20px;
+            background: linear-gradient(135deg, var(--cyan), var(--blue-glow));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #000;
+            font-size: 0.7rem;
+            font-weight: 700;
+        }
+
+        /* Urgency Banner */
+        .urgency-banner {
+            background: linear-gradient(90deg, rgba(212, 165, 116, 0.15), rgba(29, 125, 184, 0.15));
+            border: 1px solid var(--copper);
+            border-radius: 50px;
+            padding: 0.75rem 2rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin: 1.5rem auto;
+            font-size: 0.9rem;
+            animation: pulseUrgency 2s ease-in-out infinite;
+        }
+
+        @keyframes pulseUrgency {
+            0%, 100% { box-shadow: 0 0 20px rgba(212, 165, 116, 0.3); }
+            50% { box-shadow: 0 0 30px rgba(212, 165, 116, 0.6); }
+        }
+
+        .urgency-icon {
+            font-size: 1.2rem;
+            animation: blink 1.5s ease-in-out infinite;
+        }
+
+        /* Discount Badge */
+        .discount-badge {
+            position: absolute;
+            top: -15px;
+            right: -15px;
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, #ff4444, #ff6b6b);
+            border-radius: 50%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-weight: 700;
+            box-shadow: 0 5px 20px rgba(255, 68, 68, 0.5);
+            animation: pulse 2s ease-in-out infinite;
+            z-index: 10;
+        }
+
+        .discount-badge-percent {
+            font-size: 1.5rem;
+            line-height: 1;
+        }
+
+        .discount-badge-text {
+            font-size: 0.6rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        /* Price Section */
+        .price-section {
+            margin: 2rem auto;
+            text-align: center;
+        }
+
+        .price-container {
+            display: inline-block;
+            background: rgba(13, 27, 46, 0.6);
+            border: 1px solid var(--border-blue);
+            border-radius: 16px;
+            padding: 1.5rem 3rem;
+            backdrop-filter: blur(10px);
+        }
+
+        .price-label {
+            font-size: 0.75rem;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--text-secondary);
+            margin-bottom: 0.5rem;
+        }
+
+        .price-value {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--copper-light), var(--copper));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1;
+        }
+
+        .price-installment {
+            font-size: 0.85rem;
+            color: var(--cyan);
+            margin-top: 0.5rem;
+        }
+
+        /* Guarantee Badge */
+        .guarantee-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            background: rgba(29, 125, 184, 0.1);
+            border: 1px solid var(--border-blue);
+            border-radius: 50px;
+            padding: 0.75rem 1.5rem;
+            margin-top: 1.5rem;
+            font-size: 0.85rem;
+            color: var(--cyan);
+        }
+
+        .guarantee-icon {
+            width: 32px;
+            height: 32px;
+            background: linear-gradient(135deg, var(--cyan), var(--blue-glow));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+        }
+
+        /* FAQ Styling */
+        details summary {
+            transition: color 0.3s;
+        }
+
+        details[open] summary {
+            color: var(--cyan) !important;
+        }
+
+        details[open] summary span:first-child {
+            transform: rotate(90deg);
+            display: inline-block;
+        }
+
+        details summary:hover {
+            color: var(--cyan) !important;
+        }
+
+        /* Video Section */
+        .video-section {
+            padding: 7rem 2rem;
+            max-width: 1100px;
+            margin: 0 auto;
+            background: linear-gradient(180deg, transparent 0%, rgba(10, 22, 40, 0.3) 50%, transparent 100%);
+        }
+
+        .video-container {
+            position: relative;
+            max-width: 900px;
+            margin: 3rem auto 0;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 30px 80px rgba(29, 125, 184, 0.4);
+            border: 2px solid var(--border-blue);
+            background: #000;
+        }
+
+        .video-wrapper {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+            height: 0;
+            overflow: hidden;
+        }
+
+        .video-wrapper iframe,
+        .video-wrapper video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+            border-radius: 18px;
+        }
+
+        .video-placeholder {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                linear-gradient(135deg, rgba(10, 22, 40, 0.95) 0%, rgba(26, 77, 122, 0.95) 100%),
+                url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect fill="%230a1628" width="100" height="100"/><circle cx="50" cy="50" r="30" fill="none" stroke="%231a4d7a" stroke-width="0.5" opacity="0.3"/></svg>');
+            background-size: cover;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-primary);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .video-placeholder:hover {
+            background: 
+                linear-gradient(135deg, rgba(13, 27, 46, 0.95) 0%, rgba(31, 90, 143, 0.95) 100%),
+                url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect fill="%230a1628" width="100" height="100"/><circle cx="50" cy="50" r="30" fill="none" stroke="%231a4d7a" stroke-width="0.5" opacity="0.3"/></svg>');
+        }
+
+        .play-button {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--copper), var(--copper-light));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 10px 40px rgba(212, 165, 116, 0.5);
+            transition: all 0.3s ease;
+        }
+
+        .video-placeholder:hover .play-button {
+            transform: scale(1.1);
+            box-shadow: 0 15px 50px rgba(212, 165, 116, 0.7);
+        }
+
+        .video-stats {
+            display: flex;
+            gap: 3rem;
+            justify-content: center;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .video-stat-item {
+            text-align: center;
+        }
+
+        .video-stat-number {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--copper-light);
+            line-height: 1;
+            margin-bottom: 0.5rem;
+        }
+
+        .video-stat-label {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            letter-spacing: 0.03em;
+        }
+
+        @keyframes shimmer {
+            0%, 100% { filter: brightness(1); }
+            50% { filter: brightness(1.2); }
+        }
+
+        .subtitle {
+            font-size: clamp(0.9rem, 2vw, 1.1rem);
+            color: var(--cyan);
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            margin-bottom: 1rem;
+            font-weight: 500;
+            animation: fadeInUp 1s ease-out 0.2s both;
+        }
+
+        .tagline {
+            font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+            color: var(--text-secondary);
+            max-width: 800px;
+            margin: 0 auto 2.5rem;
+            font-weight: 400;
+            line-height: 1.7;
+            animation: fadeInUp 1s ease-out 0.4s both;
+        }
+
+        .product-visual {
+            max-width: 600px;
+            width: 100%;
+            margin: 3rem auto;
+            position: relative;
+            animation: fadeInUp 1s ease-out 0.6s both;
+        }
+
+        .product-image {
+            width: 100%;
+            height: auto;
+            filter: drop-shadow(0 20px 60px rgba(0, 212, 255, 0.4));
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 1.2rem 3rem;
+            font-size: 1rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.03em;
+            color: var(--bg-dark);
+            background: linear-gradient(135deg, var(--cyan), var(--blue-glow));
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 20px rgba(0, 184, 230, 0.4);
+            text-decoration: none;
+            font-family: 'Inter', sans-serif;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.5s;
+        }
+
+        .cta-button:hover::before {
+            left: 100%;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(0, 184, 230, 0.6);
+        }
+
+        .cta-button.secondary {
+            background: transparent;
+            color: var(--copper-light);
+            border: 2px solid var(--copper);
+            box-shadow: none;
+        }
+
+        .cta-button.secondary:hover {
+            background: rgba(212, 165, 116, 0.1);
+            box-shadow: 0 4px 20px rgba(212, 165, 116, 0.3);
+        }
+
+        /* ── Stats Row ── */
+        .stats-row {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            flex-wrap: wrap;
+            margin: 3rem auto 0;
+            padding: 2rem 2rem;
+            max-width: 900px;
+            border-top: 1px solid var(--border-subtle);
+        }
+
+        .stat-item { text-align: center; }
+
+        .stat-number {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2.2rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--copper-light), var(--copper));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1;
+        }
+
+        .stat-label {
+            font-size: 0.75rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--text-secondary);
+            margin-top: 0.4rem;
+        }
+
+        /* Benefits Section */
+        .section {
+            padding: 5rem 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-eyebrow {
+            text-align: center;
+            font-size: 0.8rem;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--cyan);
+            margin-bottom: 1rem;
+            font-weight: 600;
+            text-shadow: 0 0 20px rgba(0, 184, 230, 0.5);
+        }
+
+        .section-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: clamp(2rem, 4vw, 2.8rem);
+            text-align: center;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--text-primary) 0%, var(--cyan) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: 0.01em;
+            font-weight: 700;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--text-secondary);
+            font-size: 1.05rem;
+            max-width: 750px;
+            margin: 0 auto 3.5rem;
+            line-height: 1.8;
+            letter-spacing: 0.01em;
+        }
+
+        .section-divider {
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--cyan), transparent);
+            border-radius: 2px;
+            margin: 1rem auto 2rem;
+            box-shadow: 0 0 10px var(--cyan);
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+
+        .benefit-card {
+            background: rgba(13, 27, 46, 0.5);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 2.5rem 2rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            position: relative;
+            backdrop-filter: blur(10px);
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--cyan);
+            box-shadow: 0 8px 30px rgba(0, 184, 230, 0.3);
+            background: rgba(13, 27, 46, 0.7);
+        }
+
+        .benefit-card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--cyan), transparent);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .benefit-card:hover::after {
+            opacity: 1;
+        }
+
+        .benefit-icon {
+            width: 60px;
+            height: 60px;
+            margin: 0 auto 1.5rem;
+            background: linear-gradient(135deg, rgba(0, 184, 230, 0.2), rgba(29, 125, 184, 0.1));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            box-shadow: 0 0 20px rgba(0, 184, 230, 0.3);
+        }
+
+        .benefit-title {
+            font-size: 1.15rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 0.75rem;
+            font-family: 'Inter', sans-serif;
+            letter-spacing: 0.02em;
+        }
+
+        .benefit-description {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.8;
+            letter-spacing: 0.01em;
+        }
+
+        /* Quality Section */
+        .quality-section {
+            background: linear-gradient(180deg, var(--bg-secondary) 0%, var(--bg-primary) 100%);
+            padding: 6rem 2rem;
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .quality-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 1.5rem;
+            max-width: 900px;
+            margin: 3rem auto 0;
+        }
+
+        .quality-item {
+            text-align: center;
+            padding: 2rem 1.5rem;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            transition: all 0.3s ease;
+            background: rgba(13, 27, 46, 0.4);
+            backdrop-filter: blur(8px);
+        }
+
+        .quality-item:hover {
+            border-color: var(--copper);
+            background: rgba(212, 165, 116, 0.1);
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(212, 165, 116, 0.3);
+        }
+
+        .quality-icon {
+            font-size: 2.2rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .quality-label {
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: var(--copper-light);
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            font-family: 'Inter', sans-serif;
+        }
+
+        /* Science Section */
+        .science-section {
+            padding: 7rem 2rem;
+        }
+
+        .science-content {
+            max-width: 860px;
+            margin: 0 auto;
+            background: rgba(13, 27, 46, 0.6);
+            border: 1px solid var(--border-blue);
+            border-radius: 24px;
+            padding: 3.5rem;
+            backdrop-filter: blur(10px);
+        }
+
+        .science-text {
+            font-size: 1.05rem;
+            color: var(--text-secondary);
+            line-height: 1.9;
+            margin-bottom: 1.5rem;
+            font-family: 'Inter', sans-serif;
+            letter-spacing: 0.01em;
+            text-align: justify;
+        }
+
+        .science-highlight {
+            color: var(--copper-light);
+            font-weight: 600;
+        }
+
+        /* Differentials Section */
+        .differentials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+
+        .differential-card {
+            background: rgba(13, 27, 46, 0.5);
+            border: 1px solid var(--border-blue);
+            border-left: 3px solid var(--copper);
+            padding: 2rem;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(8px);
+        }
+
+        .differential-card:hover {
+            background: rgba(212, 165, 116, 0.08);
+            transform: translateX(6px);
+            border-color: var(--copper);
+            box-shadow: 0 8px 24px rgba(29, 125, 184, 0.2);
+        }
+
+        .differential-title {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--copper-light);
+            margin-bottom: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .differential-text {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.8;
+            letter-spacing: 0.01em;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 8rem 2rem;
+            text-align: center;
+            background: linear-gradient(180deg, transparent 0%, rgba(10, 22, 40, 0.6) 100%);
+        }
+
+        .cta-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: clamp(1.8rem, 4.5vw, 3rem);
+            margin-bottom: 1.5rem;
+            color: var(--text-primary);
+        }
+
+        .cta-subtitle {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            margin-bottom: 3rem;
+            max-width: 650px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.9;
+            letter-spacing: 0.01em;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        /* ── Testimonials ── */
+        .testimonials-section {
+            padding: 7rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+
+        .testimonial-card {
+            background: rgba(13, 27, 46, 0.6);
+            border: 1px solid var(--border-blue);
+            border-radius: 16px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .testimonial-card:hover {
+            border-color: var(--copper);
+            transform: translateY(-4px);
+            box-shadow: 0 12px 32px rgba(29, 125, 184, 0.25);
+        }
+
+        .testimonial-stars {
+            color: var(--copper);
+            font-size: 1rem;
+            letter-spacing: 0.1em;
+            margin-bottom: 1rem;
+        }
+
+        .testimonial-text {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.9;
+            margin-bottom: 1.5rem;
+            font-style: italic;
+            letter-spacing: 0.01em;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .author-avatar {
+            width: 40px; height: 40px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--copper), var(--copper-dark));
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--bg-primary);
+            font-family: 'Inter', sans-serif;
+            flex-shrink: 0;
+        }
+
+        .author-name {
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            font-family: 'Inter', sans-serif;
+        }
+
+        .author-role {
+            font-size: 0.78rem;
+            color: var(--text-secondary);
+        }
+
+        /* Footer */
+        .footer {
+            padding: 4rem 2rem 3rem;
+            border-top: 1px solid var(--border);
+            background: var(--bg-dark);
+        }
+
+        .footer-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        @media (max-width: 768px) {
+            .footer-inner { grid-template-columns: 1fr; gap: 2rem; }
+        }
+
+        .footer-brand .footer-tagline {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.1rem;
+            color: var(--copper);
+            margin-bottom: 0.75rem;
+            letter-spacing: 0.2em;
+        }
+
+        .footer-brand p {
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+            line-height: 1.8;
+        }
+
+        .footer-col h4 {
+            font-size: 0.75rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--copper-light);
+            margin-bottom: 1rem;
+            font-family: 'Inter', sans-serif;
+            font-weight: 700;
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-col ul li a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.88rem;
+            transition: color 0.2s;
+        }
+
+        .footer-col ul li a:hover { color: var(--copper-light); }
+
+        .footer-bottom {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border-subtle);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .footer-bottom p {
+            color: var(--text-secondary);
+            font-size: 0.8rem;
+        }
+
+        .footer-disclaimer {
+            max-width: 1100px;
+            margin: 2rem auto 0;
+            color: var(--text-secondary);
+            font-size: 0.75rem;
+            line-height: 1.7;
+            opacity: 0.6;
+            text-align: center;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .section {
+                padding: 4rem 1.5rem;
+            }
+
+            .science-content {
+                padding: 2rem;
+            }
+
+            .benefits-grid,
+            .quality-grid,
+            .differentials-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .stats-row { 
+                gap: 1.5rem;
+                flex-direction: column;
+            }
+
+            .hero-product-container {
+                max-width: 100%;
+                padding: 0 1rem;
+            }
+
+            .trust-bar span {
+                display: block;
+                margin: 0.5rem 0;
+            }
+
+            .nav-links {
+                display: none;
+            }
+        }
+
+        /* Loading Animation */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        body {
+            animation: fadeIn 0.5s ease-in;
+        }
+
+        /* Scroll Progress Bar */
+        .scroll-progress {
+            position: fixed;
+            top: 80px;
+            left: 0;
+            width: 0%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--cyan), var(--copper-light));
+            z-index: 101;
+            transition: width 0.1s ease;
+            box-shadow: 0 0 10px var(--cyan);
+        }
+
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--cyan), var(--blue-glow));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--bg-dark);
+            font-size: 1.5rem;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 100;
+            box-shadow: 0 4px 20px rgba(0, 184, 230, 0.4);
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(0, 184, 230, 0.6);
+        }
+
+        @media (max-width: 768px) {
+            .back-to-top {
+                bottom: 20px;
+                right: 20px;
+                width: 45px;
+                height: 45px;
+            }
+        }
+
+        /* DNA Helix Background Effect */
+        .dna-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+            opacity: 0.15;
+        }
+
+        .dna-strand-bg {
+            position: absolute;
+            width: 2px;
+            height: 100%;
+            background: linear-gradient(to bottom, transparent, var(--cyan), transparent);
+        }
+
+        .dna-strand-bg:nth-child(1) {
+            left: 10%;
+            animation: dnaFloat 12s ease-in-out infinite;
+        }
+
+        .dna-strand-bg:nth-child(2) {
+            left: 30%;
+            animation: dnaFloat 15s ease-in-out infinite 2s;
+        }
+
+        .dna-strand-bg:nth-child(3) {
+            right: 30%;
+            animation: dnaFloat 18s ease-in-out infinite 4s;
+        }
+
+        .dna-strand-bg:nth-child(4) {
+            right: 10%;
+            animation: dnaFloat 14s ease-in-out infinite 6s;
+        }
+
+        /* Product Showcase Section */
+        .showcase-section {
+            padding: 7rem 2rem;
+            max-width: 1300px;
+            margin: 0 auto;
+        }
+
+        .showcase-image {
+            width: 100%;
+            max-width: 960px;
+            height: auto;
+            margin: 3rem auto;
+            display: block;
+            border-radius: 24px;
+            box-shadow: 0 20px 60px rgba(201, 147, 90, 0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .showcase-image:hover {
+            transform: scale(1.01);
+        }
+
+        .product-kit-section {
+            padding: 7rem 2rem;
+            background: linear-gradient(180deg, rgba(10, 22, 40, 0.4) 0%, transparent 100%);
+        }
+
+        .kit-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .kit-image {
+            width: 100%;
+            max-width: 860px;
+            height: auto;
+            margin: 3rem auto;
+            display: block;
+            filter: drop-shadow(0 30px 60px rgba(0, 212, 255, 0.3));
+            border-radius: 24px;
+        }
+
+        .additional-products {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 5rem;
+            max-width: 1100px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .product-card {
+            background: rgba(13, 27, 46, 0.6);
+            border: 1px solid var(--border-blue);
+            border-radius: 16px;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .product-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--copper);
+            box-shadow: 0 24px 50px rgba(29, 125, 184, 0.35);
+        }
+
+        .product-card img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            margin-bottom: 1.25rem;
+        }
+
+        .product-card .benefit-title {
+            font-size: 1rem;
+            color: var(--copper-light);
+        }
+    </style>
+</head>
+<body>
+    <canvas class="bg-canvas" id="bgCanvas"></canvas>
+    
+    <!-- DNA Background Effect -->
+    <div class="dna-background">
+        <div class="dna-strand-bg"></div>
+        <div class="dna-strand-bg"></div>
+        <div class="dna-strand-bg"></div>
+        <div class="dna-strand-bg"></div>
+    </div>
+    
+    <!-- Scroll Progress Bar -->
+    <div class="scroll-progress" id="scrollProgress"></div>
+
+    <!-- Back to Top Button -->
+    <div class="back-to-top" id="backToTop">↑</div>
+
+    <div class="content-wrapper">
+
+        <!-- Navbar -->
+        <nav class="navbar" id="navbar">
+            <div class="nav-brand">BioTech</div>
+            <ul class="nav-links">
+                <li><a href="#beneficios">Benefícios</a></li>
+                <li><a href="#ciencia">Ciência</a></li>
+                <li><a href="#produtos">Produtos</a></li>
+                <li><a href="#cta" class="nav-cta">Adquirir</a></li>
+            </ul>
+        </nav>
+
+        <!-- Trust Bar -->
+        <div class="trust-bar">
+            <span>Qualidade Farmacêutica</span>
+            <span>Alta Pureza Certificada</span>
+            <span>Uso Profissional</span>
+            <span>Biotecnologia Avançada</span>
+        </div>
+
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-content">
+                <div class="brand-badge">Peptídeo Complexo de Cobre · 5mg/5ml</div>
+                <div class="logo-text">GHK-Cu BioTech</div>
+                <div class="subtitle">Tecnologia Avançada em Peptídeos</div>
+                <div class="tagline">O Peptídeo Mais Estudado para Regeneração Celular e Rejuvenescimento</div>
+                
+                <!-- Trust badges inline -->
+                <div class="hero-trust-badges">
+                    <div class="trust-badge-item">
+                        <span class="badge-icon">✓</span>
+                        <span>Pureza 99%+</span>
+                    </div>
+                    <div class="trust-badge-item">
+                        <span class="badge-icon">✓</span>
+                        <span>GMP Certificado</span>
+                    </div>
+                    <div class="trust-badge-item">
+                        <span class="badge-icon">✓</span>
+                        <span>Uso Profissional</span>
+                    </div>
+                </div>
+                
+                <div class="product-visual">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='600'%3E%3Crect fill='%230a1628' width='600' height='600'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='Arial' font-size='20' fill='%238a9fb5'%3EGHK-Cu Product%3C/text%3E%3C/svg%3E" alt="GHK-Cu BioTech Produto" class="product-image" style="display:none;">
+                </div>
+
+                <!-- Hero Product Showcase -->
+                <div class="hero-product-container">
+                    <!-- Usando PNG original para manter transparência -->
+                    <img src="images/ChatGPT Image 5 de mai. de 2026, 19_38_49.png" alt="GHK-Cu BioTech - Peptídeo Complexo Premium" class="hero-product-main" onerror="this.src='images/placeholder.svg'">
+                    <!-- Decorative floating particles -->
+                    <div class="particle" style="top: 10%; left: 15%; animation-delay: 0s;"></div>
+                    <div class="particle" style="top: 20%; right: 20%; animation-delay: 1s; background: var(--copper);"></div>
+                    <div class="particle" style="bottom: 30%; left: 10%; animation-delay: 2s;"></div>
+                    <div class="particle" style="bottom: 20%; right: 15%; animation-delay: 1.5s; background: var(--copper);"></div>
+                    <div class="particle" style="top: 50%; left: 5%; animation-delay: 0.5s;"></div>
+                    <div class="particle" style="top: 60%; right: 8%; animation-delay: 2.5s; background: var(--copper);"></div>
+                </div>
+
+                <!-- Urgency Banner -->
+                <div class="urgency-banner">
+                    <span class="urgency-icon">🔥</span>
+                    <span><strong>Estoque Limitado:</strong> Apenas 47 Kits disponíveis</span>
+                </div>
+
+                <!-- Preço Destaque -->
+                <div style="margin: 2rem auto; text-align: center;">
+                    <div style="display: inline-block; position: relative; background: rgba(13, 27, 46, 0.6); border: 2px solid var(--copper); border-radius: 20px; padding: 1.5rem 3rem; backdrop-filter: blur(10px);">
+                        <!-- Badge de Desconto -->
+                        <div class="discount-badge">
+                            <div class="discount-badge-percent">40%</div>
+                            <div class="discount-badge-text">OFF</div>
+                        </div>
+                        
+                        <div style="font-size: 0.75rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--text-secondary); margin-bottom: 0.5rem;">Kit com 5 Frascos</div>
+                        <div style="display: flex; align-items: baseline; justify-content: center; gap: 0.75rem; margin-bottom: 0.5rem;">
+                            <span style="font-size: 1.1rem; color: var(--text-secondary); text-decoration: line-through; opacity: 0.6;">R$ 149,90</span>
+                            <span style="font-family: 'Orbitron', sans-serif; font-size: 3rem; font-weight: 700; background: linear-gradient(135deg, var(--copper-light), var(--copper)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; line-height: 1;">R$ 89,90</span>
+                        </div>
+                        <div style="font-size: 0.9rem; color: var(--cyan);">ou 3x de R$ 29,97 sem juros</div>
+                    </div>
+                </div>
+
+                <a href="#cta" class="cta-button" style="display: block; max-width: 400px; margin: 0 auto; text-align: center;">Garantir Meu Kit Agora</a>
+                
+                <!-- Guarantee -->
+                <div class="guarantee-badge">
+                    <span class="guarantee-icon">🛡️</span>
+                    <span><strong>Garantia de Qualidade</strong> · Certificado GMP</span>
+                </div>
+            </div>
+
+            <!-- Stats Row -->
+            <div class="stats-row">
+                <div class="stat-item">
+                    <div class="stat-number">5mg</div>
+                    <div class="stat-label">Concentração Premium</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">99%</div>
+                    <div class="stat-label">Pureza Certificada</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">+40</div>
+                    <div class="stat-label">Anos de Pesquisa</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">GMP</div>
+                    <div class="stat-label">Padrão Farmacêutico</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Video Section -->
+        <section class="video-section">
+            <div class="section-eyebrow">Conheça o Produto</div>
+            <h2 class="section-title">Veja Como o GHK-Cu Transforma Resultados</h2>
+            <div class="section-divider"></div>
+            <p class="section-subtitle">
+                Assista ao depoimento de profissionais que já utilizam GHK-Cu BioTech e descubra por que este é o peptídeo mais escolhido para tratamentos de regeneração.
+            </p>
+
+            <div class="video-container">
+                <!-- Badge de autenticidade -->
+                <div style="position: absolute; top: 20px; left: 20px; z-index: 10; background: rgba(212, 165, 116, 0.9); backdrop-filter: blur(10px); padding: 0.5rem 1rem; border-radius: 50px; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #000; display: flex; align-items: center; gap: 0.5rem;">
+                    <span style="width: 8px; height: 8px; background: #ff0000; border-radius: 50%; animation: blink 1.5s ease-in-out infinite;"></span>
+                    Depoimento Real
+                </div>
+                
+                <div class="video-wrapper">
+                    <!-- Vídeo Local - Controle manual total -->
+                    <video id="videoFrame" muted playsinline preload="auto">
+                        <source src="images/ssstik.io_@drafernandavizzotto_1778028037268.mp4" type="video/mp4">
+                        Seu navegador não suporta vídeo HTML5.
+                    </video>
+                </div>
+            </div>
+
+            <!-- Video Stats -->
+            <div class="video-stats">
+                <div class="video-stat-item">
+                    <div class="video-stat-number">+15.000</div>
+                    <div class="video-stat-label">Visualizações</div>
+                </div>
+                <div class="video-stat-item">
+                    <div class="video-stat-number">98%</div>
+                    <div class="video-stat-label">Aprovação</div>
+                </div>
+                <div class="video-stat-item">
+                    <div class="video-stat-number">4.9★</div>
+                    <div class="video-stat-label">Avaliação</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Benefits Section -->
+        <section class="section" id="beneficios">
+            <div class="section-eyebrow">Benefícios Clínicos Comprovados</div>
+            <h2 class="section-title">Por Que Profissionais Escolhem GHK-Cu</h2>
+            <div class="section-divider"></div>
+            <p class="section-subtitle">Mais de 40 anos de pesquisas científicas comprovam a eficácia do GHK-Cu em processos de regeneração celular e rejuvenescimento.</p>
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <div class="benefit-icon">🧬</div>
+                    <div class="benefit-title">Produção de Colágeno</div>
+                    <div class="benefit-description">Auxilia na produção de colágeno e elastina, proteínas fundamentais para a estrutura e elasticidade da pele.</div>
+                </div>
+
+                <div class="benefit-card">
+                    <div class="benefit-icon">💧</div>
+                    <div class="benefit-title">Anti-inflamatório</div>
+                    <div class="benefit-description">Propriedades anti-inflamatórias comprovadas que auxiliam na redução de processos inflamatórios celulares.</div>
+                </div>
+
+                <div class="benefit-card">
+                    <div class="benefit-icon">✨</div>
+                    <div class="benefit-title">Regeneração</div>
+                    <div class="benefit-description">Suporte avançado à regeneração da pele através de mecanismos celulares de reparo tecidual.</div>
+                </div>
+
+                <div class="benefit-card">
+                    <div class="benefit-icon">🔬</div>
+                    <div class="benefit-title">Firmeza & Textura</div>
+                    <div class="benefit-description">Melhora significativa na firmeza e textura da pele, promovendo aparência mais jovem e saudável.</div>
+                </div>
+
+                <div class="benefit-card">
+                    <div class="benefit-icon">⚡</div>
+                    <div class="benefit-title">Tecnologia Peptídica</div>
+                    <div class="benefit-description">Tecnologia avançada em peptídeos com formulação de alta pureza e biodisponibilidade.</div>
+                </div>
+
+                <div class="benefit-card">
+                    <div class="benefit-icon">🧪</div>
+                    <div class="benefit-title">Reparo Tecidual</div>
+                    <div class="benefit-description">Estudado extensivamente para processos de reparo tecidual e regeneração celular.</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Product Kit Section -->
+        <section class="product-kit-section">
+            <div class="kit-container">
+                <div class="section-eyebrow">Apresentações Disponíveis</div>
+                <h2 class="section-title">Kit Profissional Completo</h2>
+                <div class="section-divider"></div>
+                <p style="font-size: 1.3rem; color: var(--text-secondary); margin-bottom: 1rem; max-width: 800px; margin-left: auto; margin-right: auto;">
+                    Disponível em apresentação individual ou kit com 5 frascos injetáveis para tratamentos prolongados
+                </p>
+                
+                <!-- Preço do Kit -->
+                <div style="text-align: center; margin: 2rem auto;">
+                    <div style="display: inline-block; background: linear-gradient(135deg, rgba(212, 165, 116, 0.15), rgba(29, 125, 184, 0.15)); border: 2px solid var(--copper); border-radius: 20px; padding: 2rem 3rem; backdrop-filter: blur(10px);">
+                        <div style="font-size: 0.85rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--text-secondary); margin-bottom: 0.5rem;">Kit com 5 Frascos</div>
+                        <div style="display: flex; align-items: baseline; justify-content: center; gap: 0.5rem; margin-bottom: 0.75rem;">
+                            <span style="font-size: 1rem; color: var(--text-secondary); text-decoration: line-through;">R$ 149,90</span>
+                            <span style="font-family: 'Orbitron', sans-serif; font-size: 3.5rem; font-weight: 700; background: linear-gradient(135deg, var(--copper-light), var(--copper)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; line-height: 1;">R$ 89,90</span>
+                        </div>
+                        <div style="font-size: 0.95rem; color: var(--cyan); margin-bottom: 1rem;">ou 3x de R$ 29,97 sem juros</div>
+                        <div style="display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(0, 212, 255, 0.1); border: 1px solid var(--cyan); border-radius: 50px; padding: 0.5rem 1.5rem; font-size: 0.85rem; color: var(--cyan); font-weight: 600;">
+                            <span>💰</span>
+                            <span>ECONOMIZE 40%</span>
+                        </div>
+                    </div>
+                </div>
+                <img src="images/ChatGPT Image 5 de mai. de 2026, 22_32_43.png" alt="GHK-Cu Kit 5 Frascos" class="kit-image" onerror="this.src='images/placeholder.svg'">
+            </div>
+
+        </section>
+
+        <!-- Quality Section -->
+        <section class="quality-section">
+            <div class="section-eyebrow">Padrões de Excelência</div>
+            <h2 class="section-title">Garantia de Qualidade</h2>
+            <div class="section-divider"></div>
+            <div class="quality-grid">
+                <div class="quality-item">
+                    <div class="quality-icon">⚗️</div>
+                    <div class="quality-label">Fórmula Avançada</div>
+                </div>
+                <div class="quality-item">
+                    <div class="quality-icon">💎</div>
+                    <div class="quality-label">Alta Pureza</div>
+                </div>
+                <div class="quality-item">
+                    <div class="quality-icon">🏥</div>
+                    <div class="quality-label">Qualidade Farmacêutica</div>
+                </div>
+                <div class="quality-item">
+                    <div class="quality-icon">👨‍⚕️</div>
+                    <div class="quality-label">Uso Profissional</div>
+                </div>
+                <div class="quality-item">
+                    <div class="quality-icon">💉</div>
+                    <div class="quality-label">5ML Premium</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Science Section -->
+        <section class="science-section" id="ciencia">
+            <div class="section-eyebrow">Embasamento Científico</div>
+            <h2 class="section-title">A Ciência por Trás</h2>
+            <div class="section-divider"></div>
+            
+            <div style="max-width: 600px; margin: 0 auto 4rem; text-align: center;">
+                <img src="images/ChatGPT Image 5 de mai. de 2026, 17_34_09.png" alt="GHK-Cu Advanced Peptide Therapy" style="width: 100%; height: auto; filter: drop-shadow(0 20px 60px rgba(212, 165, 116, 0.4)); border-radius: 24px;" onerror="this.src='images/placeholder.svg'">
+            </div>
+
+            <div class="science-content">
+                <p class="science-text">
+                    <span class="science-highlight">GHK-Cu</span> é um complexo peptídico de cobre que ocorre naturalmente no organismo humano. Este tripeptídeo revolucionário é composto pela sequência de aminoácidos Glicil-L-Histidil-L-Lisina ligada ao cobre (Cu²⁺).
+                </p>
+                <p class="science-text">
+                    Estudos científicos demonstram que o <span class="science-highlight">GHK-Cu atua em múltiplos processos celulares</span>, incluindo a síntese de colágeno, angiogênese, e modulação de genes relacionados à regeneração tecidual.
+                </p>
+                <p class="science-text">
+                    Nossa formulação utiliza <span class="science-highlight">tecnologia de ponta em biotecnologia</span> para garantir máxima estabilidade, pureza e biodisponibilidade do peptídeo complexo, assegurando resultados consistentes e eficazes.
+                </p>
+                <p class="science-text">
+                    O produto é desenvolvido seguindo rigorosos <span class="science-highlight">padrões farmacêuticos internacionais</span>, com controle de qualidade em todas as etapas da produção.
+                </p>
+            </div>
+        </section>
+
+        <!-- Differentials Section -->
+        <section class="section">
+            <div class="section-eyebrow">Por Que Escolher</div>
+            <h2 class="section-title">Diferenciais Únicos</h2>
+            <div class="section-divider"></div>
+            <div class="differentials-grid">
+                <div class="differential-card">
+                    <div class="differential-title">Alta Concentração</div>
+                    <div class="differential-text">Formulação com concentração otimizada de 5mg/5ml para máxima eficácia e resultados superiores.</div>
+                </div>
+
+                <div class="differential-card">
+                    <div class="differential-title">Tecnologia de Ponta</div>
+                    <div class="differential-text">Desenvolvido com os mais avançados processos biotecnológicos de síntese e purificação peptídica.</div>
+                </div>
+
+                <div class="differential-card">
+                    <div class="differential-title">Produção Controlada</div>
+                    <div class="differential-text">Fabricação em ambiente controlado com monitoramento rigoroso de cada etapa produtiva.</div>
+                </div>
+
+                <div class="differential-card">
+                    <div class="differential-title">Segurança & Pureza</div>
+                    <div class="differential-text">Testes extensivos de pureza, segurança e estabilidade garantem um produto de qualidade farmacêutica.</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Social Proof Numbers -->
+        <section class="section" style="padding: 5rem 2rem; background: linear-gradient(180deg, rgba(10, 22, 40, 0.4) 0%, transparent 100%);">
+            <div class="section-eyebrow">Resultados Reais</div>
+            <h2 class="section-title">Números Que Falam Por Si</h2>
+            <div class="section-divider"></div>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 3rem; max-width: 1000px; margin: 4rem auto 0; text-align: center;">
+                <div>
+                    <div style="font-family: 'Orbitron', sans-serif; font-size: 3.5rem; font-weight: 700; background: linear-gradient(135deg, var(--copper-light), var(--copper)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; line-height: 1; margin-bottom: 0.5rem;">+5.000</div>
+                    <div style="color: var(--text-secondary); font-size: 0.95rem; letter-spacing: 0.05em;">Profissionais Atendidos</div>
+                </div>
+                <div>
+                    <div style="font-family: 'Orbitron', sans-serif; font-size: 3.5rem; font-weight: 700; background: linear-gradient(135deg, var(--cyan), var(--blue-glow)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; line-height: 1; margin-bottom: 0.5rem;">99%+</div>
+                    <div style="color: var(--text-secondary); font-size: 0.95rem; letter-spacing: 0.05em;">Pureza Certificada</div>
+                </div>
+                <div>
+                    <div style="font-family: 'Orbitron', sans-serif; font-size: 3.5rem; font-weight: 700; background: linear-gradient(135deg, var(--copper-light), var(--copper)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; line-height: 1; margin-bottom: 0.5rem;">40+</div>
+                    <div style="color: var(--text-secondary); font-size: 0.95rem; letter-spacing: 0.05em;">Anos de Pesquisa</div>
+                </div>
+                <div>
+                    <div style="font-family: 'Orbitron', sans-serif; font-size: 3.5rem; font-weight: 700; background: linear-gradient(135deg, var(--cyan), var(--blue-glow)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; line-height: 1; margin-bottom: 0.5rem;">4.9★</div>
+                    <div style="color: var(--text-secondary); font-size: 0.95rem; letter-spacing: 0.05em;">Avaliação Média</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section class="testimonials-section">
+            <div class="section-eyebrow">Depoimentos</div>
+            <h2 class="section-title">O Que Dizem os Profissionais</h2>
+            <div class="section-divider"></div>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-stars">★★★★★</div>
+                    <p class="testimonial-text">"Resultados notáveis em pacientes com pele fotoenvelhecida. A qualidade da formulação é superior ao que encontramos no mercado."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">DM</div>
+                        <div>
+                            <div class="author-name">Dra. Marina Souza</div>
+                            <div class="author-role">Dermatologista · São Paulo</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-stars">★★★★★</div>
+                    <p class="testimonial-text">"Incorporei o GHK-Cu BioTech nos meus protocolos de bioestimulação. A pureza e estabilidade do produto fazem toda a diferença."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">RC</div>
+                        <div>
+                            <div class="author-name">Dr. Rafael Costa</div>
+                            <div class="author-role">Biomédico Esteta · Rio de Janeiro</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-stars">★★★★★</div>
+                    <p class="testimonial-text">"Produto de referência para tratamentos regenerativos. Meus pacientes percebem melhora visível na textura e firmeza da pele."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">AF</div>
+                        <div>
+                            <div class="author-name">Dra. Ana Ferreira</div>
+                            <div class="author-role">Médica Esteta · Curitiba</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="cta-section" id="cta">
+            <div class="section-eyebrow">Faça Parte da Elite</div>
+            <h2 class="cta-title">Eleve Sua Prática ao Próximo Nível</h2>
+            <p class="cta-subtitle">
+                Junte-se a mais de 5.000 profissionais que já utilizam GHK-Cu BioTech para oferecer resultados excepcionais aos seus clientes.
+            </p>
+            
+            <!-- Benefits list before CTA -->
+            <div style="max-width: 600px; margin: 2rem auto; text-align: left; background: rgba(13, 27, 46, 0.4); border: 1px solid var(--border-blue); border-radius: 16px; padding: 2rem;">
+                <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
+                    <span style="color: var(--cyan); font-size: 1.5rem;">✓</span>
+                    <span style="color: var(--text-primary);">Pureza farmacêutica 99%+ certificada</span>
+                </div>
+                <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
+                    <span style="color: var(--cyan); font-size: 1.5rem;">✓</span>
+                    <span style="color: var(--text-primary);">Entrega rápida e segura em todo Brasil</span>
+                </div>
+                <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
+                    <span style="color: var(--cyan); font-size: 1.5rem;">✓</span>
+                    <span style="color: var(--text-primary);">Suporte técnico especializado</span>
+                </div>
+                <div style="display: flex; align-items: center; gap: 1rem;">
+                    <span style="color: var(--cyan); font-size: 1.5rem;">✓</span>
+                    <span style="color: var(--text-primary);">Certificado GMP e rastreabilidade completa</span>
+                </div>
+            </div>
+            
+            <div class="cta-buttons">
+                <a href="#" class="cta-button" style="display: inline-block;">Garantir Meu kit Agora</a>
+                <a href="#" class="cta-button secondary" style="display: inline-block;">Falar com Especialista</a>
+            </div>
+            
+            <div style="margin-top: 2rem; color: var(--text-secondary); font-size: 0.85rem;">
+                <span style="color: var(--copper);">🔒</span> Compra 100% Segura · <span style="color: var(--copper);">📦</span> Envio Discreto · <span style="color: var(--copper);">✓</span> Garantia de Qualidade
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section class="section" style="max-width: 900px;">
+            <div class="section-eyebrow">Perguntas Frequentes</div>
+            <h2 class="section-title">Dúvidas Comuns</h2>
+            <div class="section-divider"></div>
+            
+            <div style="margin-top: 3rem;">
+                <details style="background: rgba(13, 27, 46, 0.4); border: 1px solid var(--border-blue); border-radius: 12px; padding: 1.5rem; margin-bottom: 1rem; cursor: pointer;">
+                    <summary style="font-size: 1.1rem; font-weight: 600; color: var(--copper-light); cursor: pointer; list-style: none;">
+                        <span style="margin-right: 0.5rem;">▸</span> O GHK-Cu é seguro para uso profissional?
+                    </summary>
+                    <p style="margin-top: 1rem; color: var(--text-secondary); line-height: 1.8; padding-left: 1.5rem;">
+                        Sim, o GHK-Cu é um peptídeo naturalmente presente no organismo humano e amplamente estudado há mais de 40 anos. Nossa formulação segue rigorosos padrões GMP e é destinada exclusivamente para uso por profissionais qualificados.
+                    </p>
+                </details>
+
+                <details style="background: rgba(13, 27, 46, 0.4); border: 1px solid var(--border-blue); border-radius: 12px; padding: 1.5rem; margin-bottom: 1rem; cursor: pointer;">
+                    <summary style="font-size: 1.1rem; font-weight: 600; color: var(--copper-light); cursor: pointer; list-style: none;">
+                        <span style="margin-right: 0.5rem;">▸</span> Qual a concentração do produto?
+                    </summary>
+                    <p style="margin-top: 1rem; color: var(--text-secondary); line-height: 1.8; padding-left: 1.5rem;">
+                        Cada frasco contém 5mg de GHK-Cu em 5ml de solução, com pureza superior a 99%. Esta concentração foi desenvolvida para uso profissional, garantindo eficácia e segurança.
+                    </p>
+                </details>
+
+                <details style="background: rgba(13, 27, 46, 0.4); border: 1px solid var(--border-blue); border-radius: 12px; padding: 1.5rem; margin-bottom: 1rem; cursor: pointer;">
+                    <summary style="font-size: 1.1rem; font-weight: 600; color: var(--copper-light); cursor: pointer; list-style: none;">
+                        <span style="margin-right: 0.5rem;">▸</span> Como devo armazenar o produto?
+                    </summary>
+                    <p style="margin-top: 1rem; color: var(--text-secondary); line-height: 1.8; padding-left: 1.5rem;">
+                        O GHK-Cu deve ser armazenado em local fresco, protegido da luz direta e em temperatura entre 2°C e 8°C após reconstituição. Antes da reconstituição, pode ser mantido em temperatura ambiente.
+                    </p>
+                </details>
+
+                <details style="background: rgba(13, 27, 46, 0.4); border: 1px solid var(--border-blue); border-radius: 12px; padding: 1.5rem; margin-bottom: 1rem; cursor: pointer;">
+                    <summary style="font-size: 1.1rem; font-weight: 600; color: var(--copper-light); cursor: pointer; list-style: none;">
+                        <span style="margin-right: 0.5rem;">▸</span> Qual o prazo de entrega?
+                    </summary>
+                    <p style="margin-top: 1rem; color: var(--text-secondary); line-height: 1.8; padding-left: 1.5rem;">
+                        Trabalhamos com envio expresso para todo o Brasil. O prazo médio é de 3 a 7 dias úteis, dependendo da região. Você receberá o código de rastreamento assim que o pedido for despachado.
+                    </p>
+                </details>
+
+                <details style="background: rgba(13, 27, 46, 0.4); border: 1px solid var(--border-blue); border-radius: 12px; padding: 1.5rem; margin-bottom: 1rem; cursor: pointer;">
+                    <summary style="font-size: 1.1rem; font-weight: 600; color: var(--copper-light); cursor: pointer; list-style: none;">
+                        <span style="margin-right: 0.5rem;">▸</span> Vocês emitem nota fiscal?
+                    </summary>
+                    <p style="margin-top: 1rem; color: var(--text-secondary); line-height: 1.8; padding-left: 1.5rem;">
+                        Sim, emitimos nota fiscal para todos os pedidos. A nota é enviada por e-mail junto com a confirmação do pedido e também acompanha o produto na entrega.
+                    </p>
+                </details>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-inner">
+                <div class="footer-brand">
+                    <div class="footer-tagline">GHK-Cu BioTech</div>
+                    <p>Tecnologia avançada em peptídeos para profissionais da saúde e estética. Qualidade farmacêutica em cada frasco.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Produto</h4>
+                    <ul>
+                        <li><a href="#beneficios">Benefícios</a></li>
+                        <li><a href="#ciencia">Ciência</a></li>
+                        <li><a href="#produtos">Apresentações</a></li>
+                        <li><a href="#cta">Adquirir</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Qualidade</h4>
+                    <ul>
+                        <li><a href="#">Padrão GMP</a></li>
+                        <li><a href="#">Certificações</a></li>
+                        <li><a href="#">Controle de Qualidade</a></li>
+                        <li><a href="#">Uso Profissional</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2026 GHK-Cu BioTech. Todos os direitos reservados.</p>
+                <p>CIÊNCIA · INOVAÇÃO · RESULTADOS</p>
+            </div>
+            <p class="footer-disclaimer">
+                Produto destinado exclusivamente para uso por profissionais qualificados. Armazenar em local fresco e protegido da luz. Uso sob supervisão profissional.
+            </p>
+        </footer>
+    </div>
+
+    <script>
+        // Scroll Progress Bar & Back to Top
+        const backToTop = document.getElementById('backToTop');
+        
+        window.addEventListener('scroll', () => {
+            const scrollProgress = document.getElementById('scrollProgress');
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrollPercentage = (scrollTop / scrollHeight) * 100;
+            scrollProgress.style.width = scrollPercentage + '%';
+
+            // Show/hide back to top button
+            if (scrollTop > 500) {
+                backToTop.classList.add('visible');
+            } else {
+                backToTop.classList.remove('visible');
+            }
+        });
+
+        // Back to top click
+        backToTop.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Navbar scroll effect
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            navbar.classList.toggle('scrolled', window.scrollY > 40);
+        });
+
+        // Animated Background Canvas
+        const canvas = document.getElementById('bgCanvas');
+        const ctx = canvas.getContext('2d');
+
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        window.addEventListener('resize', () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        });
+
+        class Particle {
+            constructor() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height;
+                this.size = Math.random() * 2 + 0.5;
+                this.speedX = Math.random() * 0.5 - 0.25;
+                this.speedY = Math.random() * 0.5 - 0.25;
+                this.opacity = Math.random() * 0.4 + 0.1;
+                this.isBlue = Math.random() > 0.5;
+            }
+
+            update() {
+                this.x += this.speedX;
+                this.y += this.speedY;
+
+                if (this.x > canvas.width) this.x = 0;
+                if (this.x < 0) this.x = canvas.width;
+                if (this.y > canvas.height) this.y = 0;
+                if (this.y < 0) this.y = canvas.height;
+            }
+
+            draw() {
+                const color = this.isBlue ? '29, 125, 184' : '212, 165, 116';
+                ctx.fillStyle = `rgba(${color}, ${this.opacity})`;
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fill();
+            }
+        }
+
+        const particles = [];
+        for (let i = 0; i < 100; i++) {
+            particles.push(new Particle());
+        }
+
+        function animate() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            
+            particles.forEach(particle => {
+                particle.update();
+                particle.draw();
+            });
+
+            // Draw connections
+            particles.forEach((p1, i) => {
+                particles.slice(i + 1).forEach(p2 => {
+                    const dx = p1.x - p2.x;
+                    const dy = p1.y - p2.y;
+                    const distance = Math.sqrt(dx * dx + dy * dy);
+
+                    if (distance < 150) {
+                        const color = p1.isBlue ? '29, 125, 184' : '212, 165, 116';
+                        ctx.strokeStyle = `rgba(${color}, ${0.15 * (1 - distance / 150)})`;
+                        ctx.lineWidth = 0.5;
+                        ctx.beginPath();
+                        ctx.moveTo(p1.x, p1.y);
+                        ctx.lineTo(p2.x, p2.y);
+                        ctx.stroke();
+                    }
+                });
+            });
+
+            requestAnimationFrame(animate);
+        }
+
+        animate();
+
+        // Video autoplay and stop at 0.55 seconds - SOLUÇÃO DEFINITIVA
+        document.addEventListener('DOMContentLoaded', function() {
+            const video = document.getElementById('videoFrame');
+            let hasStoppedAt055 = false;
+            let isFirstPlay = true;
+            const MAX_TIME = 0.55;
+            
+            if (video) {
+                // Garantir que o vídeo está muted para autoplay
+                video.muted = true;
+                video.volume = 0;
+                
+                // SOLUÇÃO DEFINITIVA - Remover atributo autoplay e controlar manualmente
+                video.removeAttribute('autoplay');
+                
+                // Função para forçar parada
+                function forceStop() {
+                    if (!hasStoppedAt055 && isFirstPlay) {
+                        video.pause();
+                        video.currentTime = MAX_TIME;
+                        hasStoppedAt055 = true;
+                        
+                        // Remover TODOS os event listeners de play
+                        video.onplay = null;
+                        
+                        // Adicionar overlay
+                        setTimeout(addContinueOverlay, 100);
+                    }
+                }
+                
+                // Monitorar CONSTANTEMENTE com setInterval mais agressivo
+                let checkInterval = setInterval(function() {
+                    if (isFirstPlay && !video.paused) {
+                        if (video.currentTime >= MAX_TIME) {
+                            forceStop();
+                            clearInterval(checkInterval);
+                        }
+                    }
+                }, 16); // A cada 16ms (60fps)
+                
+                // timeupdate como backup
+                video.addEventListener('timeupdate', function(e) {
+                    if (isFirstPlay && video.currentTime >= MAX_TIME) {
+                        e.stopImmediatePropagation();
+                        forceStop();
+                    }
+                });
+                
+                // Bloquear QUALQUER tentativa de play após parar
+                video.addEventListener('play', function(e) {
+                    if (hasStoppedAt055 && isFirstPlay) {
+                        e.preventDefault();
+                        e.stopImmediatePropagation();
+                        video.pause();
+                        return false;
+                    }
+                }, true);
+                
+                // Bloquear seeking
+                video.addEventListener('seeking', function(e) {
+                    if (isFirstPlay && video.currentTime > MAX_TIME) {
+                        e.preventDefault();
+                        e.stopImmediatePropagation();
+                        video.currentTime = MAX_TIME;
+                        video.pause();
+                        return false;
+                    }
+                }, true);
+                
+                // Bloquear playing
+                video.addEventListener('playing', function(e) {
+                    if (hasStoppedAt055 && isFirstPlay) {
+                        e.preventDefault();
+                        e.stopImmediatePropagation();
+                        video.pause();
+                        return false;
+                    }
+                }, true);
+
+                // Tentar iniciar o vídeo quando carregar
+                video.addEventListener('loadedmetadata', function() {
+                    video.currentTime = 0;
+                    setTimeout(function() {
+                        video.play().catch(error => {
+                            console.log('Autoplay bloqueado:', error);
+                        });
+                    }, 100);
+                });
+
+                // Tentar quando entrar na viewport
+                const videoObserver = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting && video.paused && !hasStoppedAt055) {
+                            video.currentTime = 0;
+                            video.play().catch(error => {
+                                console.log('Autoplay bloqueado:', error);
+                            });
+                        }
+                    });
+                }, { threshold: 0.3 });
+
+                videoObserver.observe(video);
+
+                function addContinueOverlay() {
+                    const videoContainer = document.querySelector('.video-container');
+                    
+                    // Verificar se já existe overlay
+                    if (videoContainer.querySelector('.video-continue-overlay')) {
+                        return;
+                    }
+                    
+                    const overlay = document.createElement('div');
+                    overlay.className = 'video-continue-overlay';
+                    overlay.innerHTML = `
+                        <div style="background: rgba(10, 22, 40, 0.95); backdrop-filter: blur(10px); padding: 1.5rem 2.5rem; border-radius: 50px; border: 2px solid var(--cyan); box-shadow: 0 0 30px rgba(0, 184, 230, 0.5); cursor: pointer; transition: all 0.3s;">
+                            <div style="display: inline-flex; align-items: center; gap: 0.75rem;">
+                                <div style="width: 40px; height: 40px; background: linear-gradient(135deg, var(--cyan), var(--blue-glow)); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1rem; color: #000;">▶</div>
+                                <span style="font-size: 1rem; font-weight: 600; color: var(--cyan);">Continuar Assistindo com Áudio</span>
+                            </div>
+                        </div>
+                    `;
+                    overlay.style.cssText = `
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        width: 100%;
+                        height: 100%;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        z-index: 10;
+                        animation: fadeIn 0.3s ease-in;
+                        border-radius: 18px;
+                        background: rgba(0, 0, 0, 0.5);
+                    `;
+                    
+                    overlay.addEventListener('click', function() {
+                        // Limpar intervalo
+                        clearInterval(checkInterval);
+                        
+                        // Resetar flags
+                        isFirstPlay = false;
+                        hasStoppedAt055 = false;
+                        
+                        // Remover todos os bloqueios
+                        video.onplay = null;
+                        
+                        // Adicionar controles
+                        video.setAttribute('controls', 'controls');
+                        video.setAttribute('controlsList', 'nodownload');
+                        
+                        // Reiniciar do começo com áudio
+                        video.currentTime = 0;
+                        video.muted = false;
+                        video.volume = 1;
+                        video.play();
+                        overlay.remove();
+                    });
+                    
+                    videoContainer.appendChild(overlay);
+                }
+            }
+        });
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+
+        // Scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.benefit-card, .quality-item, .differential-card').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'all 0.6s ease-out';
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
